@@ -1,4 +1,17 @@
-export function GET(request: Request) {
-  const data = { request, message: process.env.DR_CHRONO_CLIENT_ID };
-  return new Response(JSON.stringify(data), { status: 200 });
+export async function GET(request: Request) {
+  const url = request.url;
+  const headers = Object.fromEntries(request.headers.entries());
+  const method = request.method;
+
+  const data = {
+    url,
+    method,
+    headers,
+    message: process.env.DR_CHRONO_CLIENT_ID,
+  };
+
+  return new Response(JSON.stringify(data, null, 2), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
 }
