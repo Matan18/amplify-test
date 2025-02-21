@@ -1,3 +1,5 @@
+"use client";
+
 export default function Test() {
   const onClickOwn = () => {
     window.open("/api/redirect", "_self");
