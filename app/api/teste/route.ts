@@ -3,8 +3,14 @@ export async function GET(request: Request) {
   const headers = Object.fromEntries(request.headers.entries());
   const method = request.method;
 
+  const host =
+    request.headers.get("x-forwarded-host") || request.headers.get("host");
+  const protocol = request.headers.get("x-forwarded-proto") || "https";
+  const appUrl = `${protocol}://${host}`;
+
   const data = {
     url,
+    appUrl,
     method,
     headers,
     message: process.env.DR_CHRONO_CLIENT_ID,
