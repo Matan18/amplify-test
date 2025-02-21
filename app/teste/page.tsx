@@ -9,9 +9,9 @@ export default function Test() {
     );
   };
   return (
-    <>
+    <main>
       <button onClick={onClickOwn}>Navigate Own</button>
       <button onClick={onClickDev}>Navigate Dev</button>
-    </>
+    </main>
   );
 }
