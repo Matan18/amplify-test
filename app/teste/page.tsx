@@ -1,6 +1,17 @@
 export default function Test() {
-  const onClick = () => {
+  const onClickOwn = () => {
     window.open("/api/redirect", "_self");
   };
-  return <button onClick={onClick}>Navigate</button>;
+  const onClickDev = () => {
+    window.open(
+      "https://develop.d1ve6l3zrsm3pf.amplifyapp.com/api/teste",
+      "_self"
+    );
+  };
+  return (
+    <>
+      <button onClick={onClickOwn}>Navigate Own</button>
+      <button onClick={onClickDev}>Navigate Dev</button>
+    </>
+  );
 }
